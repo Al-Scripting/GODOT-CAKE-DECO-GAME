@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7u1rxlhhd8ml"]
+
+[ext_resource type="Script" path="res://Scripts/Topping.gd" id="1_ul8f3"]
+[ext_resource type="Texture2D" uid="uid://c4v62o47uuavv" path="res://icon.svg" id="2_p6u5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvpl2"]
+size = Vector2(129, 129)
+
+[node name="Topping" type="Area2D"]
+script = ExtResource("1_ul8f3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p6u5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_xvpl2")

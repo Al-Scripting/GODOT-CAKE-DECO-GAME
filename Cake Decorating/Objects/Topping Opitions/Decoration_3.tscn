@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://biaiwteemy1md"]
+
+[ext_resource type="Script" path="res://Objects/Topping Opitions/Decoration_1.gd" id="1_283da"]
+[ext_resource type="Texture2D" uid="uid://dsqwnj0dgqnns" path="res://Sprites/whipped cream.png" id="2_40blt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7gsx"]
+radius = 35.3553
+
+[node name="Decoration3" type="Area2D" groups=["Topps"]]
+script = ExtResource("1_283da")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Topp"]]
+texture = ExtResource("2_40blt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Topps"]]
+shape = SubResource("CircleShape2D_n7gsx")

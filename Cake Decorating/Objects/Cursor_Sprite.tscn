@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7lvsv65bmsx2"]
+
+[ext_resource type="Script" path="res://Scripts/Cursor_Sprite.gd" id="1_nlhpt"]
+[ext_resource type="Texture2D" uid="uid://wk4p3w5lyck" path="res://Sprites/Nothing Sprite.png" id="2_ubbk8"]
+
+[node name="Cursor_Sprite" type="Node2D"]
+z_index = 7
+script = ExtResource("1_nlhpt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ubbk8")

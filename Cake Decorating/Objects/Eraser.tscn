@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://caacdj3w454dd"]
+
+[ext_resource type="Script" path="res://Scripts/Eraser.gd" id="1_p0073"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5yx4"]
+radius = 30.3191
+
+[node name="Eraser" type="Area2D"]
+script = ExtResource("1_p0073")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.52, 1.48)
+shape = SubResource("CircleShape2D_e5yx4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

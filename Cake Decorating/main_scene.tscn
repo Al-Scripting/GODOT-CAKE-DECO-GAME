@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgfbqh1gxowrj"]
+
+[ext_resource type="Texture2D" uid="uid://28pvd4eef3fb" path="res://Sprites/Blank.png" id="1_7q1jq"]
+[ext_resource type="PackedScene" uid="uid://c1v0aakj6ov8r" path="res://Objects/Cake_Area.tscn" id="2_ti5xg"]
+[ext_resource type="PackedScene" uid="uid://0ltj4ol668sk" path="res://Objects/Topping Opitions/Decoration_1.tscn" id="2_v2hlp"]
+[ext_resource type="PackedScene" uid="uid://c7lvsv65bmsx2" path="res://Objects/Cursor_Sprite.tscn" id="3_tdb65"]
+[ext_resource type="Script" path="res://Scripts/Toppings.gd" id="4_86v7e"]
+[ext_resource type="PackedScene" uid="uid://caacdj3w454dd" path="res://Objects/Eraser.tscn" id="4_c160v"]
+[ext_resource type="PackedScene" uid="uid://crc64bpg7raqh" path="res://Objects/Topping Opitions/Decoration_2.tscn" id="5_huo2l"]
+[ext_resource type="PackedScene" uid="uid://biaiwteemy1md" path="res://Objects/Topping Opitions/Decoration_3.tscn" id="6_xwie2"]
+[ext_resource type="Script" path="res://Scripts/Customer_Order.gd" id="7_3p22h"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(577.5, 321.5)
+scale = Vector2(18.2873, 10.7006)
+texture = ExtResource("1_7q1jq")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background"]
+modulate = Color(0.839216, 0.811765, 0.709804, 1)
+position = Vector2(577.5, 321.5)
+scale = Vector2(18.0731, 10.1406)
+texture = ExtResource("1_7q1jq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+modulate = Color(0.92549, 0.415686, 0.415686, 1)
+position = Vector2(127, 179.5)
+scale = Vector2(2.375, 4.35938)
+texture = ExtResource("1_7q1jq")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background"]
+modulate = Color(0.92549, 0.415686, 0.415686, 1)
+position = Vector2(1020, 311)
+scale = Vector2(2.07813, 8.86719)
+texture = ExtResource("1_7q1jq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background"]
+modulate = Color(0.823529, 0.768627, 0.623529, 1)
+position = Vector2(593.216, 305.89)
+rotation = -1.5708
+scale = Vector2(5.70198, 7.78479)
+texture = ExtResource("1_7q1jq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+modulate = Color(0.92549, 0.415686, 0.415686, 1)
+position = Vector2(130, 423)
+scale = Vector2(2.375, 1.52344)
+texture = ExtResource("1_7q1jq")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+modulate = Color(0.92549, 0.415686, 0.415686, 1)
+position = Vector2(130, 538)
+scale = Vector2(2.375, 1.52344)
+texture = ExtResource("1_7q1jq")
+
+[node name="CakeArea" parent="." instance=ExtResource("2_ti5xg")]
+position = Vector2(603, 397)
+
+[node name="Eraser" parent="." instance=ExtResource("4_c160v")]
+
+[node name="CursorSprite" parent="." instance=ExtResource("3_tdb65")]
+
+[node name="Toppings" type="Node2D" parent="."]
+script = ExtResource("4_86v7e")
+
+[node name="Decoration1" parent="." instance=ExtResource("2_v2hlp")]
+position = Vector2(1022, 137)
+
+[node name="Decoration2" parent="." instance=ExtResource("5_huo2l")]
+position = Vector2(1023, 300)
+
+[node name="Decoration3" parent="." instance=ExtResource("6_xwie2")]
+position = Vector2(1022, 475)
+
+[node name="Customer_Order" type="Node2D" parent="."]
+script = ExtResource("7_3p22h")
+
+[node name="Sprinkles" type="Label" parent="Customer_Order"]
+offset_left = 76.0
+offset_top = 72.0
+offset_right = 181.0
+offset_bottom = 95.0
+text = "Sprinkles: 0/0"
+
+[node name="Berries" type="Label" parent="Customer_Order"]
+offset_left = 77.0
+offset_top = 136.0
+offset_right = 166.0
+offset_bottom = 159.0
+text = "Berries: 0/0"
+
+[node name="Whip" type="Label" parent="Customer_Order"]
+offset_left = 88.0
+offset_top = 200.0
+offset_right = 161.0
+offset_bottom = 223.0
+text = "Whip: 0/0
+"
+
+[node name="Time" type="Label" parent="Customer_Order"]
+offset_left = 94.0
+offset_top = 411.0
+offset_right = 169.0
+offset_bottom = 434.0
+text = "Time: 100"
+
+[node name="Points" type="Label" parent="Customer_Order"]
+offset_left = 80.0
+offset_top = 527.0
+offset_right = 156.0
+offset_bottom = 550.0
+text = "Points: 00
+"
+
+[connection signal="CLEAR_TOPPINGS" from="Customer_Order" to="Toppings" method="_on_customer_order_clear_toppings"]
